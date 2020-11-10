@@ -8,6 +8,7 @@ import { WeatherHightlightsComponent } from './weather-hightlights/weather-hight
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
+import { GpsComponent } from './weather/gps/gps.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     WeatherHightlightsComponent,
     WeatherForecastComponent,
     SearchComponent,
-    FooterComponent
+    FooterComponent,
+    GpsComponent
   ],
   imports: [
     BrowserModule,
