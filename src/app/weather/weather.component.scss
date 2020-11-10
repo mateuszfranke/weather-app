@@ -12,7 +12,7 @@
 .grid{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 3fr;
+  grid-template-rows: 0.5fr 1.5fr 3fr;
 }
 
 .menu{
@@ -22,6 +22,7 @@
 }
 .btn{
   background-color: #6E707A;
+  font-size: 1.2rem;
   color: #E7E7EB;
   height: 3rem;
   width: 12rem;
@@ -53,6 +54,13 @@ p{
   font-size: 2rem;
   font-weight: 500;
   margin: 2.5rem;
+}
+.weather-type__img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+
 }
 .location{
   color:#A09FB1;
