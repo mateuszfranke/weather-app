@@ -1,0 +1,28 @@
+@media only screen and (max-width: 600px) {
+
+  .grid{
+    display: grid;
+    grid-template-areas:
+    "weather"
+    "forecast"
+    "highlights"
+    "footer";
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .weather{
+    grid-area: weather;
+  }
+
+  .weather-forecast{
+    grid-area: forecast;
+  }
+
+  .weather-highlights{
+    grid-area: highlights;
+  }
+  .footer{
+    grid-area: footer;
+  }
+}
+
