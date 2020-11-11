@@ -1,7 +1,9 @@
 <section class="main grid">
   <div class="menu">
-    <button class="btn">Search for places</button>
-    <app-gps></app-gps>
+    <button class="menu__btn">Search for places</button>
+    <div class="menu__gps">
+      <i class="material-icons">gps_fixed</i>
+    </div>
   </div>
   <div class="weather__visualization">
     <img src="assets/sun-cloud.png" alt="sunc" class="weather-type__cloud">
@@ -9,7 +11,6 @@
     <img src="assets/cloud.png" alt="small_cloud_2" class="clouds top-right">
     <img src="assets/cloud.png" alt="small_cloud_3" class="clouds bottom-left size--bigger">
     <img src="assets/cloud.png" alt="small_cloud_4" class="clouds bottom-right">
-
   </div>
   <div>
     <div class="temperature">
@@ -17,7 +18,13 @@
       <span class="temperature__symbol">&#x2103;</span>
     </div>
     <p class="weather-type">Shower</p>
-    <p class="date">Today : FRI.5.JUN</p>
-    <p class="location">Helsinki</p>
+    <div class="date">
+      <p>Today</p>
+      <p class="date__dot">&bull;</p>
+      <p>FRI.5.JUN</p>
+    </div>
+    <div class="location">
+      <i class="material-icons padding">location_on</i>
+      <p>Helsinki</p></div>
   </div>
 </section>
