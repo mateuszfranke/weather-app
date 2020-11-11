@@ -5,20 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { WeatherHightlightsComponent } from './weather-hightlights/weather-hightlights.component';
-import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { GpsComponent } from './weather/gps/gps.component';
+import { WeatherForecastsComponent } from './weather-forecasts/weather-forecasts.component';
+import { WeatherForecastComponent } from './weather-forecasts/weather-forecast/weather-forecast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     WeatherHightlightsComponent,
-    WeatherForecastComponent,
     SearchComponent,
     FooterComponent,
-    GpsComponent
+    GpsComponent,
+    WeatherForecastsComponent,
+    WeatherForecastComponent
   ],
   imports: [
     BrowserModule,
