@@ -2,7 +2,27 @@ p{
   margin: 0;
 }
 .wind-status{
+  padding-top: 5%;
   color: white;
   font-family: "Raleway", sans-serif;
   background-color: #1E213A;
+  text-align: center;
+}
+.wind-status__header{
+  text-align: center;
+  font-size: 1rem;
+}
+
+.wind-status__number{
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  display: inline-block;
+}
+.wind-status__type{
+  font-size: 2rem;
+}
+
+.wind-status__direction{
+  padding-bottom: 5%;
 }

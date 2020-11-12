@@ -5,4 +5,18 @@ p{
   color: white;
   font-family: "Raleway", sans-serif;
   background-color: #1E213A;
+  padding: 5% 0;
+  text-align: center;
+}
+
+.air-pressure__number{
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  display: inline-block;
+}
+
+.air-pressure__type{
+  font-size: 2rem;
+  padding: 0 5%;
 }
