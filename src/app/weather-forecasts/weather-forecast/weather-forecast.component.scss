@@ -25,3 +25,28 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.maximal__temperature{
+  display: block;
+}
+.minimal__temperature{
+  display: block;
+
+}
+.max-temp{
+  color: #E7E7EB;
+}
+
+.min-temp{
+  color: #A09FB1;
+}
+
+.inline-block{
+  display: inline-block;
+
+}
+
+.temperature__symbol{
+  display: inline-block;
+  font-size: 0.8rem;
+}
