@@ -13,16 +13,37 @@ p{
   font-size: 1rem;
 }
 
-.wind-status__number{
+.wind-status__main--speed{
   text-align: center;
   font-size: 4rem;
   font-weight: 900;
   display: inline-block;
 }
-.wind-status__type{
+.wind-status__main--type{
   font-size: 2rem;
 }
 
 .wind-status__direction{
   padding-bottom: 5%;
+  padding-left: 3%;
+  display: inline;
+}
+.wind-status__directions--img{
+  border-radius: 50%;
+  background-color: #A09FB1;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: inline-block;
+}
+
+.navigation{
+   font-size: 1.2rem;
+}
+.wind-status__main{
+  display: block;
+}
+.wind-status__directions{
+  display: block;
+  text-align: center;
+  padding: 5% 0;
 }

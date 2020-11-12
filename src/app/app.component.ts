@@ -19,7 +19,8 @@ export class AppComponent implements OnInit{
       this.weather = observ.consolidated_weather[0];
       this.location = observ.title;
       this.weatherForecasts = observ.consolidated_weather;
-      this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
+      this.weatherForecasts = this.weatherForecasts .slice(1, this.weatherForecasts.length);
+      this.weatherForecasts[0].applicable_date = 'Tomorrow';
       console.log(this.weatherForecasts);
     });
   }

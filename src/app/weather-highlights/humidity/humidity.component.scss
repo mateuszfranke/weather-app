@@ -5,7 +5,7 @@ p{
   color: white;
   font-family: "Raleway", sans-serif;
   background-color: #1E213A;
-  padding-top: 5%;
+  padding: 5% 0;
   text-align: center;
 }
 .humidity__number{
@@ -13,6 +13,7 @@ p{
   font-size: 4rem;
   font-weight: 900;
   display: inline-block;
+  padding-bottom: 5%;
 }
 .humidity__percentage{
   font-size: 2rem;
@@ -20,5 +21,11 @@ p{
 }
 
 .humidity__progress-bar{
+  display: block;
   padding-bottom: 5%;
+  margin-right: auto;
+  margin-left: auto;
 }
+
+
+
