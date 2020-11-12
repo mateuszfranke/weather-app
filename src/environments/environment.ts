@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  metaWeatherUrl: 'https://www.metaweather.com'
+  metaWeatherUrl: 'https://www.metaweather.com',
+  herokuUrl: 'https://cors-anywhere.herokuapp.com/'
 };
 
 /*

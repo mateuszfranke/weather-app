@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-wind-status',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wind-status.component.scss']
 })
 export class WindStatusComponent implements OnInit {
+
+  @Input() windSpeed: number;
+  @Input() windDirection: string;
 
   constructor() { }
 

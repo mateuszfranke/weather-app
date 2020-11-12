@@ -14,17 +14,17 @@
   </div>
   <div>
     <div class="temperature">
-      <p class="temperature__degree">15</p>
+      <p class="temperature__degree">{{weather.the_temp.toFixed(1)}}</p>
       <span class="temperature__symbol">&#x2103;</span>
     </div>
-    <p class="weather-type">Shower</p>
+    <p class="weather-type">{{weather.weather_state_name}}</p>
     <div class="date">
       <p>Today</p>
       <p class="date__dot">&bull;</p>
-      <p>FRI.5.JUN</p>
+      <p>{{weather.applicable_date}}</p>
     </div>
     <div class="location">
       <i class="material-icons padding">location_on</i>
-      <p>Helsinki</p></div>
+      <p>{{location}}</p></div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TemperatureModel} from '../temperature.model';
+import {ConsolidatedWeatherModel} from '../../services/consolidated_weather.model';
 
 @Component({
   selector: 'app-weather-forecast',
@@ -8,7 +8,7 @@ import {TemperatureModel} from '../temperature.model';
 })
 export class WeatherForecastComponent implements OnInit {
 
-  @Input() temperature: TemperatureModel;
+  @Input() weather: ConsolidatedWeatherModel;
 
   constructor() { }
 

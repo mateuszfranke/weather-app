@@ -1,4 +1,4 @@
-<app-weather class="weather"></app-weather>
-<app-weather-forecasts class="weather-forecast"></app-weather-forecasts>
-<app-weather-highlights></app-weather-highlights>
+<app-weather [location]="location" [weather]="weather" class="weather"></app-weather>
+<app-weather-forecasts [arr]="weatherForecasts" class="weather-forecast"></app-weather-forecasts>
+<app-weather-highlights [weather]="weather"></app-weather-highlights>
 <app-footer class="footer"></app-footer>

@@ -1,8 +1,8 @@
 <section class="grid">
   <h2>Today’s Hightlights</h2>
-  <app-wind-status class="section"></app-wind-status>
-  <app-humidity class="section"></app-humidity>
-  <app-visibility class="section"></app-visibility>
-  <app-air-pressure class="section"></app-air-pressure>
+  <app-wind-status [windSpeed]="weather.wind_speed" [windDirection]="weather.wind_direction_compass" class="section"></app-wind-status>
+  <app-humidity [humidity]="weather.humidity" class="section"></app-humidity>
+  <app-visibility [visibility]="weather.visibility" class="section"></app-visibility>
+  <app-air-pressure [airPresure]="weather.air_pressure" class="section"></app-air-pressure>
 </section>
 

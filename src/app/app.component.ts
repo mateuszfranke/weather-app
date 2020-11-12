@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MetaWeatherService} from './services/meta-weather.service';
+import {ConsolidatedWeatherModel} from './services/consolidated_weather.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'weather-app';
+  weather: ConsolidatedWeatherModel;
+  weatherForecasts: ConsolidatedWeatherModel[];
+  location: string;
+  constructor(private weatherService: MetaWeatherService) { }
+
+  ngOnInit(): void {
+      this.weatherService.getWeatherForCity().subscribe(observ => {
+      this.weather = observ.consolidated_weather[0];
+      this.location = observ.title;
+      this.weatherForecasts = observ.consolidated_weather;
+      this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
+      console.log(this.weatherForecasts);
+    });
+  }
 }

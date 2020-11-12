@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-visibility',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visibility.component.scss']
 })
 export class VisibilityComponent implements OnInit {
+
+  @Input() visibility: number;
 
   constructor() { }
 

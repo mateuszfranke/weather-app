@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MetaWeatherService} from '../services/meta-weather.service';
+import {ConsolidatedWeatherModel} from '../services/consolidated_weather.model';
 
 @Component({
   selector: 'app-weather',
@@ -8,10 +9,13 @@ import {MetaWeatherService} from '../services/meta-weather.service';
 })
 export class WeatherComponent implements OnInit {
 
+  @Input() weather: ConsolidatedWeatherModel;
+  @Input() location: string;
+
   constructor(private weatherService: MetaWeatherService) { }
 
   ngOnInit(): void {
-    this.weatherService.getWeatherForCity().subscribe(x => console.log(x));
+
   }
 
 }

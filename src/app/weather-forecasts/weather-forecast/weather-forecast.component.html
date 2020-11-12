@@ -1,8 +1,8 @@
 <section class="weather">
-<p class="weather__date">{{temperature.date}}</p>
+<p class="weather__date">{{weather.applicable_date}}</p>
   <img src="assets/sun-cloud.png" alt="sun" class="weather--image">
   <div class="weather__temperature">
-    <p>{{temperature.day}}</p>
-    <p>{{temperature.night}}</p>
+    <p>{{weather.min_temp.toFixed(1)}}</p>
+    <p>{{weather.max_temp.toFixed(1)}}</p>
   </div>
 </section>
