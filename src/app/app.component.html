@@ -1,5 +1,5 @@
-<app-weather [location]="location" [weather]="weather" class="weather"></app-weather>
-<app-search></app-search>
+<app-weather *ngIf="!searchActive" (search)="setSearch($event)" [location]="location" [weather]="weather" class="weather"></app-weather>
+<app-search  *ngIf="searchActive" (search)="setSearch($event)"></app-search>
 <app-weather-forecasts [arr]="weatherForecasts" class="weather-forecast"></app-weather-forecasts>
 <app-weather-highlights [weather]="weather"></app-weather-highlights>
 <app-footer class="footer"></app-footer>

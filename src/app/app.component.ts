@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   weather: ConsolidatedWeatherModel;
   weatherForecasts: ConsolidatedWeatherModel[];
   location: string;
+  searchActive: boolean;
   constructor(private weatherService: MetaWeatherService) { }
 
   ngOnInit(): void {
@@ -25,4 +26,10 @@ export class AppComponent implements OnInit{
         console.log(this.weatherForecasts);
     });
   }
+
+  setSearch($event): void {
+    console.log($event);
+    this.searchActive = $event;
+  }
+
 }
