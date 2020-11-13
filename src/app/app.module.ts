@@ -15,6 +15,7 @@ import { HumidityComponent } from './weather-highlights/humidity/humidity.compon
 import { VisibilityComponent } from './weather-highlights/visibility/visibility.component';
 import { AirPressureComponent } from './weather-highlights/air-pressure/air-pressure.component';
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
