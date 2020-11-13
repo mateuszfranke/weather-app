@@ -1,3 +1,5 @@
+$text_indent: 3rem;
+
 .search{
   background: #1E213A;
   width: 100vw;
@@ -18,13 +20,25 @@ input{
   background-color: #1E213A;
   border: 1px solid #E7E7EB;
   color: #E7E7EB;
+  font-size: 1.4rem;
+  text-indent: $text_indent;
+}
 
+.loupe {
+  background-image: url("../../assets/magnify.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  background-position-x: 0.5rem;
 }
 
 input::placeholder{
   color: #616475;
   font-size: 1rem;
-  text-indent: 3rem;
+  text-indent: $text_indent
+}
+input:focus{
+  outline: none;
 }
 
 button{
