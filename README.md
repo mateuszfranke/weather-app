@@ -1,5 +1,5 @@
 # Weather app
-- My solution for exercise from [devchallenges.io](https://devchallenges.io/challenges/mM1U- IenRhK808W8qmLWv) in Angular stack.
+- My solution for exercise from [devchallenges.io](https://devchallenges.io/challenges/mM1U-IenRhK808W8qmLWv) in Angular stack.
 - Hosted solution available at [click](https://mateuszfranke.github.io/weather-app)
 - [figma](https://www.figma.com/file/5X3Ao3gEqZPqqKctP7riDF/weather-app?node-id=0%3A1)
 
