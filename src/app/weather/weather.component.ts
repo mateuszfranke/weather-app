@@ -11,11 +11,11 @@ export class WeatherComponent implements OnInit {
 
   @Input() weather: ConsolidatedWeatherModel;
   @Input() location: string;
+  weatherIconUrl: string;
 
   constructor(private weatherService: MetaWeatherService) { }
 
   ngOnInit(): void {
-
   }
 
 }

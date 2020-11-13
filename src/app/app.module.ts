@@ -14,7 +14,7 @@ import { WindStatusComponent } from './weather-highlights/wind-status/wind-statu
 import { HumidityComponent } from './weather-highlights/humidity/humidity.component';
 import { VisibilityComponent } from './weather-highlights/visibility/visibility.component';
 import { AirPressureComponent } from './weather-highlights/air-pressure/air-pressure.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
