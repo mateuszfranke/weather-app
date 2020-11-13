@@ -1,27 +1,24 @@
-# WeatherApp
+# Weather app
+- My solution for exercise from [devchallenges.io](https://devchallenges.io/challenges/mM1U- IenRhK808W8qmLWv) in Angular stack.
+- Hosted solution available at [click](https://mateuszfranke.github.io/weather-app)
+- [figma](https://www.figma.com/file/5X3Ao3gEqZPqqKctP7riDF/weather-app?node-id=0%3A1)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+## Stack
+- Angular 10
+- scss
+- mobile first approach
+## User stories
 
-## Development server
+- I can see city weather as default, preferably my current location
+- I can search for city
+- I can see weather of today and the next 5 days
+- I can see the date and location of the weather
+- I can see according to image for each type of weather
+- I can see the min and max degree each day
+- I can see wind status and wind direction
+- I can see humidity percentage
+- I can see visibility indicator
+- I can see air pressure number
+- I can request my current location weather
+- I can convert temperature in Celcius to Fahrenheit and vice versa
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
