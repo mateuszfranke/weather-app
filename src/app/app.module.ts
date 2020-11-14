@@ -7,7 +7,6 @@ import { WeatherComponent } from './weather/weather.component';
 import { WeatherHighlightsComponent } from './weather-highlights/weather-highlights.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
-import { GpsComponent } from './weather/gps/gps.component';
 import { WeatherForecastsComponent } from './weather-forecasts/weather-forecasts.component';
 import { WeatherForecastComponent } from './weather-forecasts/weather-forecast/weather-forecast.component';
 import { WindStatusComponent } from './weather-highlights/wind-status/wind-status.component';
@@ -24,7 +23,6 @@ import {FormsModule} from '@angular/forms';
     WeatherHighlightsComponent,
     SearchComponent,
     FooterComponent,
-    GpsComponent,
     WeatherForecastsComponent,
     WeatherForecastComponent,
     WindStatusComponent,

@@ -11,8 +11,8 @@ export class WeatherComponent implements OnInit {
 
   @Input() weather: ConsolidatedWeatherModel;
   @Input() location: string;
-  weatherIconUrl: string;
   @Output() search: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() searchWithGPS: EventEmitter<Position> = new EventEmitter<Position>();
   private geolocationPosition: Position;
 
   constructor(private weatherService: MetaWeatherService) { }
@@ -28,8 +28,9 @@ export class WeatherComponent implements OnInit {
     if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
         position => {
-          this.geolocationPosition = position,
-            console.log(position);
+          this.geolocationPosition = position;
+          console.log(position);
+          this.searchWithGPS.emit(position);
         },
         error => {
           switch (error.code) {

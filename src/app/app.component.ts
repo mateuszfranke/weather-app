@@ -32,5 +32,11 @@ export class AppComponent implements OnInit{
       this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
       this.weatherForecasts[0].applicable_date = 'Tomorrow';
       });
-    }
+  }
+  getCityFromGPS(position: Position): void{
+    this.weatherService.lookForCityByCoordinates(position).subscribe(observer => {
+      alert('Nearest available city in www.metaweather.com is ' + observer[0].title);
+      this.getCity(observer[0].woeid);
+    });
+  }
 }

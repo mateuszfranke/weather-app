@@ -4,6 +4,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {MetaWeatherModel} from './meta-weather.model';
 import {SearchModel} from './search.model';
+import {GpsModel} from './gps.model';
 
 @Injectable({providedIn: 'root'})
 export class MetaWeatherService{
@@ -18,6 +19,10 @@ export class MetaWeatherService{
   lookForCity(city: string): Observable<SearchModel[]>{
     const ulr = `${environment.herokuUrl}${environment.metaWeatherUrl}/api/location/search/?query=${city}`;
     return this.http.get<SearchModel[]>(ulr);
+  }
+  lookForCityByCoordinates(coordinate: Position): Observable<GpsModel[]> {
+    const ulr = `${environment.herokuUrl}${environment.metaWeatherUrl}/api/location/search/?lattlong=${coordinate.coords.latitude},${coordinate.coords.longitude}`;
+    return this.http.get<GpsModel[]>(ulr);
   }
 
 }

@@ -1,4 +1,4 @@
-<app-weather *ngIf="!searchActive" (search)="setSearch($event)" [location]="location" [weather]="weather" class="weather"></app-weather>
+<app-weather *ngIf="!searchActive" (search)="setSearch($event)" (searchWithGPS)="getCityFromGPS($event)" [location]="location" [weather]="weather" class="weather"></app-weather>
 <app-search  *ngIf="searchActive" (search)="setSearch($event)" (woeid)="getCity($event)"></app-search>
 <app-weather-forecasts [arr]="weatherForecasts" class="weather-forecast"></app-weather-forecasts>
 <app-weather-highlights [weather]="weather"></app-weather-highlights>
