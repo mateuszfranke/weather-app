@@ -16,7 +16,6 @@ export class MetaWeatherService{
     return this.http.get<MetaWeatherModel>(ulr);
   }
   getCity(city: string): Observable<SearchModel[]>{
-    console.log(city);
     const ulr = `${environment.herokuUrl}${environment.metaWeatherUrl}/api/location/search/?query=${city}`;
     return this.http.get<SearchModel[]>(ulr);
   }

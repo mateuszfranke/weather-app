@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MetaWeatherService} from '../services/meta-weather.service';
+import {SearchModel} from '../services/search.model';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,7 @@ export class SearchComponent implements OnInit {
   @Output() search: EventEmitter<boolean> = new EventEmitter<boolean>();
   searchValue: string;
   constructor(private weatherService: MetaWeatherService) { }
-
+  searchModel: SearchModel[];
   ngOnInit(): void {
   }
 
@@ -20,7 +21,8 @@ export class SearchComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.weatherService.getCity(this.searchValue).subscribe(x => console.log(x));
+    this.weatherService.getCity(this.searchValue).subscribe(observ => this.searchModel = observ);
+
   }
 
 }
