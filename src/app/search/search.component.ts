@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
 
   searchValue: string;
   constructor(private weatherService: MetaWeatherService) { }
-  searchModel: SearchModel[];
+  searchModel: SearchModel[] = [];
 
   ngOnInit(): void {
   }
@@ -24,7 +24,13 @@ export class SearchComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.weatherService.lookForCity(this.searchValue).subscribe(observ => this.searchModel = observ);
+    this.weatherService.lookForCity(this.searchValue).subscribe(observer => {
+      observer.forEach(item => {
+        if (this.searchModel.length < 5){
+          this.searchModel.push(item);
+        }
+      });
+    });
   }
 
   selectedCity($event: SearchModel): void {
