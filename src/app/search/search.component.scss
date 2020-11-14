@@ -78,10 +78,16 @@ button{
   margin: 0;
   color: #616475;
   font-size: 2rem;
+  visibility: hidden;
 }
 
 .results__list__item:hover{
   border: 1px solid #616475;
+  visibility: visible;
+
+  .results__list__item--icon{
+    visibility: visible;
+  }
 }
 
 

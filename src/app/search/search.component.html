@@ -5,7 +5,7 @@
     <button (click)="onSearch()">Search</button>
   </div>
   <section class="results__list">
-    <div *ngFor="let result of searchModel" class="results__list__item">
+    <div *ngFor="let result of searchModel" class="results__list__item" (click)="selectedCity(result)">
       <p class="results__list__item--title">{{result.title}}</p>
       <i class="material-icons results__list__item--icon">keyboard_arrow_right</i>
     </div>

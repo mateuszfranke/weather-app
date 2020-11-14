@@ -8,6 +8,7 @@ import {ConsolidatedWeatherModel} from './services/consolidated_weather.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+
   title = 'weather-app';
   weather: ConsolidatedWeatherModel;
   weatherForecasts: ConsolidatedWeatherModel[];
@@ -16,20 +17,19 @@ export class AppComponent implements OnInit{
   constructor(private weatherService: MetaWeatherService) { }
 
   ngOnInit(): void {
-      this.weatherService.getWeatherForCity().subscribe(observ => {
-        this.weather = observ.consolidated_weather[0];
-        console.log(this.weather);
-        this.location = observ.title;
-        this.weatherForecasts = observ.consolidated_weather;
-        this.weatherForecasts = this.weatherForecasts .slice(1, this.weatherForecasts.length);
-        this.weatherForecasts[0].applicable_date = 'Tomorrow';
-        console.log(this.weatherForecasts);
-    });
+    this.getCity(615702);
   }
 
   setSearch($event): void {
-    console.log($event);
     this.searchActive = $event;
   }
-
+  getCity(woeid: number): void{
+    this.weatherService.getWeatherForCity(woeid).subscribe(observ => {
+      this.weather = observ.consolidated_weather[0];
+      this.location = observ.title;
+      this.weatherForecasts = observ.consolidated_weather;
+      this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
+      this.weatherForecasts[0].applicable_date = 'Tomorrow';
+      });
+    }
 }

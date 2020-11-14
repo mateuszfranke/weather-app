@@ -10,9 +10,12 @@ import {SearchModel} from '../services/search.model';
 export class SearchComponent implements OnInit {
 
   @Output() search: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() woeid: EventEmitter<number> = new EventEmitter<number>();
+
   searchValue: string;
   constructor(private weatherService: MetaWeatherService) { }
   searchModel: SearchModel[];
+
   ngOnInit(): void {
   }
 
@@ -21,8 +24,11 @@ export class SearchComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.weatherService.getCity(this.searchValue).subscribe(observ => this.searchModel = observ);
-
+    this.weatherService.lookForCity(this.searchValue).subscribe(observ => this.searchModel = observ);
   }
 
+  selectedCity($event: SearchModel): void {
+    this.woeid.emit($event.woeid);
+    this.search.emit(false);
+  }
 }

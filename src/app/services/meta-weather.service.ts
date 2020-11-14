@@ -11,12 +11,13 @@ export class MetaWeatherService{
   constructor(private http: HttpClient) {
   }
 
-  getWeatherForCity(): Observable<MetaWeatherModel>{
-    const ulr = `${environment.herokuUrl}${environment.metaWeatherUrl}/api/location/523920/`;
+  getWeatherForCity(woeid: number): Observable<MetaWeatherModel>{
+    const ulr = `${environment.herokuUrl}${environment.metaWeatherUrl}/api/location/${woeid}/`;
     return this.http.get<MetaWeatherModel>(ulr);
   }
-  getCity(city: string): Observable<SearchModel[]>{
+  lookForCity(city: string): Observable<SearchModel[]>{
     const ulr = `${environment.herokuUrl}${environment.metaWeatherUrl}/api/location/search/?query=${city}`;
     return this.http.get<SearchModel[]>(ulr);
   }
+
 }
