@@ -13,6 +13,7 @@ export class WeatherComponent implements OnInit {
   @Input() location: string;
   weatherIconUrl: string;
   @Output() search: EventEmitter<boolean> = new EventEmitter<boolean>();
+  private geolocationPosition: Position;
 
   constructor(private weatherService: MetaWeatherService) { }
 
@@ -21,6 +22,30 @@ export class WeatherComponent implements OnInit {
 
   onSearch(): void {
     this.search.emit(true);
+  }
+
+  getCurrentLocation(): void {
+    if (window.navigator && window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+        position => {
+          this.geolocationPosition = position,
+            console.log(position);
+        },
+        error => {
+          switch (error.code) {
+            case 1:
+              console.log('Permission Denied');
+              break;
+            case 2:
+              console.log('Position Unavailable');
+              break;
+            case 3:
+              console.log('Timeout');
+              break;
+          }
+        }
+      );
+    }
   }
 
 }

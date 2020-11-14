@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
   constructor(private weatherService: MetaWeatherService) { }
 
   ngOnInit(): void {
+
     this.getCity(615702);
   }
 
