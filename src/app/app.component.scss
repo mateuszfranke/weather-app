@@ -1,5 +1,12 @@
-* {
-  box-sizing: border-box;
+
+@media only screen and (min-width: 601px){
+  .grid{
+    display: grid;
+    grid-template-areas:
+    "weather forecast forecast"
+    "weather highlights highlights"
+    "weather footer footer";
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -11,22 +18,44 @@
     "forecast"
     "highlights"
     "footer";
-    grid-template-rows: auto auto auto auto;
   }
 
   .weather{
-    grid-area: weather;
+    height: 100vh;
+    width: 100%;
   }
 
   .weather-forecast{
-    grid-area: forecast;
+    height: 100vh;
+    width: 100%;
   }
 
   .weather-highlights{
-    grid-area: highlights;
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
   }
   .footer{
-    grid-area: footer;
+    height: 30vh;
+    width: 100%;
+    overflow: hidden;
   }
+
 }
+
+.weather{
+  grid-area: weather;
+}
+
+.weather-forecast{
+  grid-area: forecast;
+}
+
+.weather-highlights{
+  grid-area: highlights;
+}
+.footer{
+  grid-area: footer;
+}
+
 
