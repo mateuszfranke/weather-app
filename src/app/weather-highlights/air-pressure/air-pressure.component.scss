@@ -8,6 +8,18 @@ p{
   text-align: center;
   width: inherit;
   height: 100%;
+  display: grid;
+  padding: 5%;
+}
+.air-pressure--header{
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+.air-pressure__main{
+  display: inline-block;
+  width: 100%;
+  align-self: center;
 }
 
 .air-pressure__number{
@@ -20,4 +32,6 @@ p{
 .air-pressure__type{
   font-size: 2rem;
   padding: 0 5%;
+  display: inline-block;
+
 }

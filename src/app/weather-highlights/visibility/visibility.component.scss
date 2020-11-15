@@ -8,6 +8,19 @@ p{
   text-align: center;
   width: inherit;
   height: 100%;
+  padding: 5%;
+  display: grid;
+  grid-template-columns: 1fr;
+
+}
+.visibility--header{
+  font-size: 1.2rem;
+  align-self: center;
+}
+.visibility__main{
+  display: inline-block;
+  align-self: center;
+  width: 100%;
 }
 
 .visibility__number{
@@ -20,4 +33,6 @@ p{
 .visibility__type{
   font-size: 2rem;
   padding: 0 5%;
+  display: inline-block;
+
 }

@@ -1,6 +1,6 @@
 
 @media only screen and (min-width: 900px){
-  .grid{
+  .forecasts__grid{
     display: grid;
     grid-template-areas:
     "weather forecast forecast"
@@ -31,7 +31,7 @@
 
 @media only screen and (max-width: 600px) {
 
-  .grid{
+  .forecasts__grid{
     display: grid;
     grid-template-areas:
     "weather"

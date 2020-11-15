@@ -1,4 +1,4 @@
-.grid{
+.forecasts__grid{
   display: grid;
   height: inherit;
   width: 100% !important;
@@ -12,11 +12,50 @@
   align-items: center;
   position: relative;
   overflow: scroll;
-  padding: 2rem;
+  padding: 4%;
 }
 
 .weather-forecast{
   height: auto;
   justify-self: center;
+}
+@media only screen and (max-width: 600px) {
+  .temperature__switch {
+    visibility: hidden !important;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .temperature__switch {
+    visibility: visible;
+  }
+}
+.temperature__switch{
+  visibility: visible;
+  display: flex;
+  justify-content: flex-end;
+  padding: 4% 5% 0 4% ;
+}
+
+.selected{
+  background: #E7E7EB;
+  color: #585676;
+}
+.deselected{
+  background: #585676;
+  color: #E7E7EB;
+}
+.temperature{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  vertical-align: center;
+  margin: 1%;
 }
 

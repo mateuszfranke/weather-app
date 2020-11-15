@@ -1,24 +1,25 @@
-.grid{
+.highlight__grid{
   display: grid;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background: #100E1D;
   grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
-  grid-template-rows: repeat(auto-fit,minmax(5rem,20%));
+  grid-template-rows: repeat(auto-fit,minmax(5rem,40%));
   grid-column-gap: 4%;
   grid-row-gap: 4%;
   font-family: "Raleway", sans-serif;
   overflow: scroll;
+}
+.highlight__outer-grid{
   padding: 5%;
+  height: 100%;
+  width: 100%;
+  background: #100E1D;
 }
 p{
   margin: 0;
 }
-.section{
-  //display: block;
-  //padding: 5%;
-  //background: #1E213A;
-}
+
 h2{
   margin: 0;
   color: white;
@@ -31,4 +32,5 @@ h2{
   font-family: "Raleway", sans-serif;
   text-align: left;
   padding-left: 5%;
+  padding-bottom: 5%;
 }

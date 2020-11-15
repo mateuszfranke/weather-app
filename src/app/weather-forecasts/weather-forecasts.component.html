@@ -1,3 +1,9 @@
-<section class="grid">
-  <app-weather-forecast class="weather-forecast" *ngFor="let forecast of arr" [weather]="forecast"></app-weather-forecast>
-</section>
+<div>
+  <section class="temperature__switch">
+    <div class="temperature selected" >&#x2103;</div>
+    <div class="temperature deselected">&#8457;</div>
+  </section>
+  <section class="forecasts__grid">
+    <app-weather-forecast class="weather-forecast" *ngFor="let forecast of arr" [weather]="forecast"></app-weather-forecast>
+  </section>
+</div>

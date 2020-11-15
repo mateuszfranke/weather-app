@@ -8,6 +8,9 @@ p{
   text-align: center;
   width: inherit;
   height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 5%;
 }
 .wind-status__header{
   text-align: center;

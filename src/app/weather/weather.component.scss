@@ -27,15 +27,15 @@
 
 .main{
   background: #1E213A;
-  color: white;
   font-family: 'Raleway', sans-serif;
 }
-.grid{
+.weather__grid{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.5fr 2fr 3fr;
   height: inherit;
   width: inherit;
+  overflow-x: hidden;
 }
 .menu{
   display: flex;
