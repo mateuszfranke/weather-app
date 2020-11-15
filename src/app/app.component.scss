@@ -6,23 +6,24 @@
     "weather forecast forecast"
     "weather highlights highlights"
     "weather footer footer";
+    overflow: hidden;
   }
   .weather{
     height: 100vh;
     width: 30vw;
   }
   .weather-forecast{
-    height: 45vh;
+    height: 30vh;
     width: 70vw;
   }
 
   .weather-highlights{
-    height: 45vh;
+    height: 60vh;
     width: 70vw;
   }
 
   .footer{
-    height: auto;
+    height: 10vh;
     width: 70vw;
   }
 
@@ -55,7 +56,7 @@
     overflow: scroll;
   }
   .footer{
-    height: 30vh;
+    height: 15vh;
     width: 100%;
     overflow: hidden;
   }

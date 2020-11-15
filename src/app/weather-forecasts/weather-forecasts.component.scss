@@ -3,7 +3,9 @@
   height: inherit;
   width: 100% !important;
   background: #100E1D;
-  grid-template-columns: repeat(auto-fit, minmax(10rem ,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(9rem ,1fr));
+  grid-template-rows: repeat(auto-fit, 12rem);
+
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
   justify-content: center;
@@ -14,7 +16,6 @@
 }
 
 .weather-forecast{
-  //width: 10rem;
   height: auto;
   justify-self: center;
 }

@@ -2,11 +2,12 @@ p{
   margin: 0;
 }
 .wind-status{
-  padding-top: 5%;
   color: white;
   font-family: "Raleway", sans-serif;
   background-color: #1E213A;
   text-align: center;
+  width: inherit;
+  height: 100%;
 }
 .wind-status__header{
   text-align: center;
@@ -45,5 +46,4 @@ p{
 .wind-status__directions{
   display: block;
   text-align: center;
-  padding: 5% 0;
 }
