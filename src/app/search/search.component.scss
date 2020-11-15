@@ -1,5 +1,18 @@
 $text_indent: 3rem;
 
+@media only screen and (min-width: 900px) {
+  .search {
+    width: 30vw !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search {
+    width: 100vw;
+  }
+
+}
+
 .search{
   background: #1E213A;
   width: 100vw;
