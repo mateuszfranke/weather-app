@@ -14,10 +14,10 @@ export class AppComponent implements OnInit{
   weatherForecasts: ConsolidatedWeatherModel[];
   location: string;
   searchActive: boolean;
+  isCelsius = true;
   constructor(private weatherService: MetaWeatherService) { }
 
   ngOnInit(): void {
-
     this.getCity(615702);
   }
 
@@ -38,5 +38,9 @@ export class AppComponent implements OnInit{
       alert('Nearest available city in www.metaweather.com is ' + observer[0].title);
       this.getCity(observer[0].woeid);
     });
+  }
+
+  reCalculateFahrenheit(): void {
+    this.isCelsius = false;
   }
 }

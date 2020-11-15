@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ConsolidatedWeatherModel} from '../../services/consolidated_weather.model';
+import {ReCalculateService} from '../../services/re-calculate.service';
 
 @Component({
   selector: 'app-weather-forecast',
@@ -9,10 +10,14 @@ import {ConsolidatedWeatherModel} from '../../services/consolidated_weather.mode
 export class WeatherForecastComponent implements OnInit {
 
   @Input() weather: ConsolidatedWeatherModel;
+  isCelsius: boolean;
 
-  constructor() { }
+  constructor(private calc: ReCalculateService) { }
 
   ngOnInit(): void {
+    this.calc.isCelsius.subscribe(observer => {
+      this.isCelsius = observer;
+    });
   }
 
 }
