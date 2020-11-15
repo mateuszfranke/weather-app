@@ -1,5 +1,5 @@
 
-@media only screen and (min-width: 601px){
+@media only screen and (min-width: 900px){
   .grid{
     display: grid;
     grid-template-areas:
@@ -7,6 +7,25 @@
     "weather highlights highlights"
     "weather footer footer";
   }
+  .weather{
+    height: 100vh;
+    width: 30vw;
+  }
+  .weather-forecast{
+    height: 45vh;
+    width: 70vw;
+  }
+
+  .weather-highlights{
+    height: 45vh;
+    width: 70vw;
+  }
+
+  .footer{
+    height: auto;
+    width: 70vw;
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
