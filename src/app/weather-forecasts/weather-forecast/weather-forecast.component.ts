@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ConsolidatedWeatherModel} from '../../services/consolidated_weather.model';
+import {ConsolidatedWeatherModel} from '../../models/consolidated_weather.model';
 import {ReCalculateService} from '../../services/re-calculate.service';
 
 @Component({

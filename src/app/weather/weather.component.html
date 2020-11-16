@@ -14,15 +14,15 @@
   </div>
   <div>
     <div class="temperature">
-      <p class="temperature__degree">{{temperature.toFixed(0)}}</p>
+      <p class="temperature__degree">{{weather.consolidated_weather[0].the_temp.toFixed(0)}}</p>
       <span class="temperature__symbol" *ngIf="isCelsius">&#x2103;</span>
       <span class="temperature__symbol" *ngIf="!isCelsius">&#8457;</span>
     </div>
-    <p class="weather-type">{{weather.weather_state_name}}</p>
+    <p class="weather-type">{{weather.consolidated_weather[0].weather_state_name}}</p>
     <div class="date">
       <p>Today</p>
       <p class="date__dot">&bull;</p>
-      <p>{{weather.applicable_date}}</p>
+      <p>{{weather.consolidated_weather[0].applicable_date}}</p>
     </div>
     <div class="location">
       <i class="material-icons padding">location_on</i>

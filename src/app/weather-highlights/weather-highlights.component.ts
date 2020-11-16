@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ConsolidatedWeatherModel} from '../services/consolidated_weather.model';
+import {ConsolidatedWeatherModel} from '../models/consolidated_weather.model';
+import {WeatherService} from '../services/weather.service';
+import {observable} from 'rxjs';
 
 @Component({
   selector: 'app-weather-highlights',
@@ -8,11 +10,14 @@ import {ConsolidatedWeatherModel} from '../services/consolidated_weather.model';
 })
 export class WeatherHighlightsComponent implements OnInit {
 
-  @Input() weather: ConsolidatedWeatherModel;
+  weather: ConsolidatedWeatherModel;
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.weatherService.weather.subscribe(observer => {
+      this.weather = observer.consolidated_weather[0];
+    });
   }
 
 }

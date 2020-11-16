@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MetaWeatherService} from '../services/meta-weather.service';
-import {SearchModel} from '../services/search.model';
+import {SearchModel} from '../models/search.model';
 
 @Component({
   selector: 'app-search',

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ConsolidatedWeatherModel} from '../services/consolidated_weather.model';
+import {ConsolidatedWeatherModel} from '../models/consolidated_weather.model';
 import {ReCalculateService} from '../services/re-calculate.service';
 
 @Component({
@@ -14,9 +14,7 @@ export class WeatherForecastsComponent implements OnInit {
   @Output() convertToCelsius: EventEmitter<any> =  new EventEmitter<any>();
   @Output() convertToFahrenheit: EventEmitter<any> =  new EventEmitter<any>();
 
-  constructor(private calc: ReCalculateService) {
-
-  }
+  constructor(private calc: ReCalculateService) {}
 
   ngOnInit(): void {
   }

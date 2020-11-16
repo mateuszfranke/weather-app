@@ -1,6 +1,7 @@
 import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {MetaWeatherService} from './services/meta-weather.service';
-import {ConsolidatedWeatherModel} from './services/consolidated_weather.model';
+import {ConsolidatedWeatherModel} from './models/consolidated_weather.model';
+import {WeatherService} from './services/weather.service';
 
 @Injectable({providedIn: 'root'})
 @Component({
@@ -16,52 +17,25 @@ export class AppComponent implements OnInit{
   location: string;
   searchActive: boolean;
   isCelsius = true;
-  constructor(private weatherService: MetaWeatherService) { }
-
-  Init(){
-    return new Promise<void>((resolve, reject) => {
-      console.log("AppInitService.init() called");
-      console.log('getCity is called');
-      this.weatherService.getWeatherForCity(615702).subscribe(observ => {
-        this.weather = observ.consolidated_weather[0];
-        this.location = observ.title;
-        this.weatherForecasts = observ.consolidated_weather;
-        this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
-        this.weatherForecasts[0].applicable_date = 'Tomorrow';
-        console.log(observ);
-        debugger;
-        resolve();
-
-      });
-      // this.getCity(615702)
-      // setTimeout(() => {
-      //   console.log('AppInitService Finished');
-      //   resolve();
-      // }, 6000);
-    });
-  }
+  constructor(private mWeatherService: MetaWeatherService, private weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    // this.getCity(615702);
+    this.getCity(615702);
   }
 
   setSearch($event): void {
     this.searchActive = $event;
   }
   getCity(woeid: number): void{
-    console.log('getCity is called');
-    this.weatherService.getWeatherForCity(woeid).subscribe(observ => {
-      this.weather = observ.consolidated_weather[0];
-      this.location = observ.title;
+    this.mWeatherService.getWeatherForCity(woeid).subscribe(observ => {
       this.weatherForecasts = observ.consolidated_weather;
       this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
       this.weatherForecasts[0].applicable_date = 'Tomorrow';
-      console.log(observ);
-
+      this.weatherService.weather.next(observ);
     });
   }
   getCityFromGPS(position: Position): void{
-    this.weatherService.lookForCityByCoordinates(position).subscribe(observer => {
+    this.mWeatherService.lookForCityByCoordinates(position).subscribe(observer => {
       alert('Nearest available city in www.metaweather.com is ' + observer[0].title);
       this.getCity(observer[0].woeid);
     });
