@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,13 @@ import { VisibilityComponent } from './weather-highlights/visibility/visibility.
 import { AirPressureComponent } from './weather-highlights/air-pressure/air-pressure.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {AppInitService} from './services/app-init.service';
+
+export function initializeApp1 (appInitService: AppComponent) {
+  return (): Promise<any> => {
+    return appInitService.Init();
+  }
+}
 
 @NgModule({
   declarations: [
@@ -36,7 +43,9 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AppInitService, { provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [AppComponent], multi: true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

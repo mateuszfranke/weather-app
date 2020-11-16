@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MetaWeatherService} from '../services/meta-weather.service';
 import {ConsolidatedWeatherModel} from '../services/consolidated_weather.model';
 import {ReCalculateService} from '../services/re-calculate.service';
 
@@ -16,17 +15,19 @@ export class WeatherComponent implements OnInit {
   @Output() searchWithGPS: EventEmitter<Position> = new EventEmitter<Position>();
   private geolocationPosition: Position;
   isCelsius = true;
-
+  temperature: number;
   constructor(public calc: ReCalculateService) { }
 
   ngOnInit(): void {
+    console.log(this.weather);
     this.calc.isCelsius.subscribe(
-      x => {
-        this.isCelsius = x;
-        console.log('recalc to isCelsius: ' + x);
-        const val = this.weather.the_temp;
-        // this.weather.the_temp = (val * 9 / 5 ) + 32;
-
+      observer => {
+        if (this.isCelsius ===  true && observer === false ){
+          this.temperature = this.calc.toFahrenheit(this.weather.the_temp);
+        }else if (this.isCelsius ===  false && observer === true ){
+          this.temperature = this.calc.toCelsius(this.weather.the_temp);
+        }
+        this.isCelsius = observer;
       }
     );
   }

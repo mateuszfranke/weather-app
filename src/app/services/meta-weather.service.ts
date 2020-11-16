@@ -12,6 +12,7 @@ export class MetaWeatherService{
   constructor(private http: HttpClient) {
   }
 
+
   getWeatherForCity(woeid: number): Observable<MetaWeatherModel>{
     const ulr = `${environment.herokuUrl}${environment.metaWeatherUrl}/api/location/${woeid}/`;
     return this.http.get<MetaWeatherModel>(ulr);

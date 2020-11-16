@@ -2,7 +2,7 @@
   <div class="menu">
     <button class="menu__btn" (click)="onSearch()">Search for places</button>
     <div class="menu__gps" (click)="getCurrentLocation()">
-      <i class="material-icons">gps_fixed</i>
+      <i class="material-icons menu__gps--icon">gps_fixed</i>
     </div>
   </div>
   <div class="weather__visualization">
@@ -14,7 +14,7 @@
   </div>
   <div>
     <div class="temperature">
-      <p class="temperature__degree">{{weather.the_temp.toFixed(0)}}</p>
+      <p class="temperature__degree">{{temperature.toFixed(0)}}</p>
       <span class="temperature__symbol" *ngIf="isCelsius">&#x2103;</span>
       <span class="temperature__symbol" *ngIf="!isCelsius">&#8457;</span>
     </div>

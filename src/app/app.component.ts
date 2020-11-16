@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {MetaWeatherService} from './services/meta-weather.service';
 import {ConsolidatedWeatherModel} from './services/consolidated_weather.model';
 
+@Injectable({providedIn: 'root'})
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,21 +18,47 @@ export class AppComponent implements OnInit{
   isCelsius = true;
   constructor(private weatherService: MetaWeatherService) { }
 
+  Init(){
+    return new Promise<void>((resolve, reject) => {
+      console.log("AppInitService.init() called");
+      console.log('getCity is called');
+      this.weatherService.getWeatherForCity(615702).subscribe(observ => {
+        this.weather = observ.consolidated_weather[0];
+        this.location = observ.title;
+        this.weatherForecasts = observ.consolidated_weather;
+        this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
+        this.weatherForecasts[0].applicable_date = 'Tomorrow';
+        console.log(observ);
+        debugger;
+        resolve();
+
+      });
+      // this.getCity(615702)
+      // setTimeout(() => {
+      //   console.log('AppInitService Finished');
+      //   resolve();
+      // }, 6000);
+    });
+  }
+
   ngOnInit(): void {
-    this.getCity(615702);
+    // this.getCity(615702);
   }
 
   setSearch($event): void {
     this.searchActive = $event;
   }
   getCity(woeid: number): void{
+    console.log('getCity is called');
     this.weatherService.getWeatherForCity(woeid).subscribe(observ => {
       this.weather = observ.consolidated_weather[0];
       this.location = observ.title;
       this.weatherForecasts = observ.consolidated_weather;
       this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
       this.weatherForecasts[0].applicable_date = 'Tomorrow';
-      });
+      console.log(observ);
+
+    });
   }
   getCityFromGPS(position: Position): void{
     this.weatherService.lookForCityByCoordinates(position).subscribe(observer => {
