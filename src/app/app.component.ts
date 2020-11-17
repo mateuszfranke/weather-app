@@ -2,6 +2,7 @@ import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {MetaWeatherService} from './services/meta-weather.service';
 import {ConsolidatedWeatherModel} from './models/consolidated_weather.model';
 import {WeatherService} from './services/weather.service';
+import {MetaWeatherModel} from './models/meta-weather.model';
 
 @Injectable({providedIn: 'root'})
 @Component({
@@ -17,23 +18,33 @@ export class AppComponent implements OnInit{
   location: string;
   searchActive: boolean;
   isCelsius = true;
+  loader: boolean;
+
   constructor(private mWeatherService: MetaWeatherService, private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.loader = true;
     this.getCity(615702);
   }
 
   setSearch($event): void {
     this.searchActive = $event;
   }
+
   getCity(woeid: number): void{
-    this.mWeatherService.getWeatherForCity(woeid).subscribe(observ => {
-      observ.consolidated_weather = observ.consolidated_weather.slice(1, observ.consolidated_weather?.length);
-      observ.consolidated_weather[0].applicable_date = 'Tomorrow';
-      this.weatherService.weather.next(observ);
-      this.weatherService.isCelsius.next(true);
-      console.log('weathers emitted');
-    });
+    this.mWeatherService.getWeatherForCity(woeid)
+      .subscribe((observer) => {
+          observer.consolidated_weather = observer.consolidated_weather.slice(1, observer.consolidated_weather?.length);
+          observer.consolidated_weather[0].applicable_date = 'Tomorrow';
+          this.weatherService.weather.next(observer);
+          this.weatherService.isCelsius.next(true);
+      }, (error) => {
+        console.log(error);
+        }, () => {
+          console.log('HTTP Observable completed...');
+          this.loader = false;
+        }
+      );
   }
   getCityFromGPS(position: Position): void{
     this.mWeatherService.lookForCityByCoordinates(position).subscribe(observer => {

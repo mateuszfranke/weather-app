@@ -15,14 +15,14 @@ export class WeatherComponent implements OnInit {
   private geolocationPosition: Position;
   isCelsius = true;
 
-  constructor(public weatherService: WeatherService) { }
+  constructor(public weatherService: WeatherService) {
+  }
 
   ngOnInit(): void {
-
     this.weatherService.weather.subscribe((observer: MetaWeatherModel) => {
-      console.log('subject val received');
-      console.log(observer);
       this.weather = observer;
+      this.weatherService.loader.next(false);
+      console.log('loader emitted to FALSE');
     });
 
     this.weatherService.isCelsius.subscribe((observer: boolean) => {
