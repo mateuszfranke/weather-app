@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
   constructor(private mWeatherService: MetaWeatherService, private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.weatherService.loader.next(true);
     this.loader = true;
     this.getCity(615702);
   }
@@ -47,10 +48,14 @@ export class AppComponent implements OnInit{
       );
   }
   getCityFromGPS(position: Position): void{
+    this.loader = true;
     this.mWeatherService.lookForCityByCoordinates(position).subscribe(observer => {
       alert('Nearest available city in www.metaweather.com is ' + observer[0].title);
       this.getCity(observer[0].woeid);
-    });
+    },(error) => {
+      console.log(error);
+      this.loader = false;
+    }, () => this.loader = false);
   }
 
 }
