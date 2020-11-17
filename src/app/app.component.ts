@@ -32,6 +32,8 @@ export class AppComponent implements OnInit{
       this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
       this.weatherForecasts[0].applicable_date = 'Tomorrow';
       this.weatherService.weather.next(observ);
+      this.weatherService.isCelsius.next(true);
+      console.log('weathers emitted');
     });
   }
   getCityFromGPS(position: Position): void{

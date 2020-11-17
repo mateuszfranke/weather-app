@@ -3,14 +3,14 @@
   <img src="assets/sun-cloud.png" alt="sun" class="weather--image">
   <div class="weather__temperature">
     <div class="maximal__temperature">
-      <p class="max-temp inline-block">{{weather.max_temp.toFixed(0)}}</p>
-      <span class="temperature__symbol max-temp" *ngIf="isCelsius">&#x2103;</span>
-      <span class="temperature__symbol max-temp" *ngIf="!isCelsius">&#8457;</span>
+      <p class="max-temp inline-block">{{weather?.max_temp?.toFixed(0)}}</p>
+      <span class="temperature__symbol max-temp" *ngIf="!isCelsius">&#x2103;</span>
+      <span class="temperature__symbol max-temp" *ngIf="isCelsius">&#8457;</span>
     </div>
     <div class="minimal__temperature">
-      <p class="min-temp inline-block">{{weather.min_temp.toFixed(0)}}</p>
-      <span class="temperature__symbol max-temp" *ngIf="isCelsius">&#x2103;</span>
-      <span class="temperature__symbol max-temp" *ngIf="!isCelsius">&#8457;</span>
+      <p class="min-temp inline-block">{{weather?.min_temp?.toFixed(0)}}</p>
+      <span class="temperature__symbol min-temp" *ngIf="!isCelsius">&#x2103;</span>
+      <span class="temperature__symbol min-temp" *ngIf="isCelsius">&#8457;</span>
     </div>
   </div>
 </section>

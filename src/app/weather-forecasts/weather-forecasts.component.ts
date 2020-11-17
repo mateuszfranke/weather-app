@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ConsolidatedWeatherModel} from '../models/consolidated_weather.model';
-import {ReCalculateService} from '../services/re-calculate.service';
+import {WeatherService} from '../services/weather.service';
 
 @Component({
   selector: 'app-weather-forecasts',
@@ -13,18 +13,22 @@ export class WeatherForecastsComponent implements OnInit {
   @Input() arr: ConsolidatedWeatherModel[];
   @Output() convertToCelsius: EventEmitter<any> =  new EventEmitter<any>();
   @Output() convertToFahrenheit: EventEmitter<any> =  new EventEmitter<any>();
+  isCelsius: boolean ;
 
-  constructor(private calc: ReCalculateService) {}
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
+    this.isCelsius = true;
   }
 
   onConvertToCelsius(): void {
-    this.calc.isCelsius.next(true);
+    this.isCelsius = true;
+    this.weatherService.isCelsius.next(true);
   }
 
   onConvertToFahrenheit(): void {
-    this.calc.isCelsius.next(false);
+    this.isCelsius = false;
+    this.weatherService.isCelsius.next(false);
   }
 
 }

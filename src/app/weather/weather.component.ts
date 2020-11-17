@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ReCalculateService} from '../services/re-calculate.service';
 import {WeatherService} from '../services/weather.service';
-import {ConsolidatedWeatherModel} from '../models/consolidated_weather.model';
 import {MetaWeatherModel} from '../models/meta-weather.model';
 
 @Component({
@@ -12,32 +10,31 @@ import {MetaWeatherModel} from '../models/meta-weather.model';
 export class WeatherComponent implements OnInit {
 
   weather: MetaWeatherModel;
-  location: string;
   @Output() search: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() searchWithGPS: EventEmitter<Position> = new EventEmitter<Position>();
   private geolocationPosition: Position;
   isCelsius = true;
-  // temperature: number;
 
-  constructor(public calc: ReCalculateService, public weatherService: WeatherService) { }
+  constructor(public weatherService: WeatherService) { }
 
   ngOnInit(): void {
 
-    this.weatherService.weather.subscribe(observable => {
+    this.weatherService.weather.subscribe((observer: MetaWeatherModel) => {
       console.log('subject val received');
-      console.log(observable);
-      this.weather = observable;
+      console.log(observer);
+      this.weather = observer;
     });
-    // this.calc.isCelsius.subscribe(
-    //   observer => {
-    //     if (this.isCelsius ===  true && observer === false ){
-    //       this.temperature = this.calc.toFahrenheit(this.weather.the_temp);
-    //     }else if (this.isCelsius ===  false && observer === true ){
-    //       this.temperature = this.calc.toCelsius(this.weather.the_temp);
-    //     }
-    //     this.isCelsius = observer;
-    //   }
-    // );
+
+    this.weatherService.isCelsius.subscribe((observer: boolean) => {
+      if (this.isCelsius ===  true && observer === false ){
+              this.weather.consolidated_weather[0].the_temp =
+                this.weatherService.toFahrenheit( this.weather.consolidated_weather[0].the_temp);
+            }else if (this.isCelsius ===  false && observer === true ){
+              this.weather.consolidated_weather[0].the_temp =
+                this.weatherService.toCelsius( this.weather.consolidated_weather[0].the_temp);
+            }
+      this.isCelsius = observer;
+    });
   }
 
   onSearch(): void {
