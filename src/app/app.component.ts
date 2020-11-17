@@ -28,9 +28,8 @@ export class AppComponent implements OnInit{
   }
   getCity(woeid: number): void{
     this.mWeatherService.getWeatherForCity(woeid).subscribe(observ => {
-      this.weatherForecasts = observ.consolidated_weather;
-      this.weatherForecasts = this.weatherForecasts.slice(1, this.weatherForecasts.length);
-      this.weatherForecasts[0].applicable_date = 'Tomorrow';
+      observ.consolidated_weather = observ.consolidated_weather.slice(1, observ.consolidated_weather?.length);
+      observ.consolidated_weather[0].applicable_date = 'Tomorrow';
       this.weatherService.weather.next(observ);
       this.weatherService.isCelsius.next(true);
       console.log('weathers emitted');
