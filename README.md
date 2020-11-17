@@ -3,10 +3,15 @@
 - Hosted solution available at [click](https://mateuszfranke.github.io/weather-app)
 - [figma](https://www.figma.com/file/5X3Ao3gEqZPqqKctP7riDF/weather-app?node-id=0%3A1)
 
+## tips
+- First loading can take a while due to proxy server ,additional information in network tab.
+
 ## Stack
 - Angular 10
 - scss
 - mobile first approach
+
+
 ## User stories
 
 - I can see city weather as default, preferably my current location
@@ -21,4 +26,4 @@
 - I can see air pressure number
 - I can request my current location weather
 - I can convert temperature in Celcius to Fahrenheit and vice versa
-
+- My bonus: user can see loading page.

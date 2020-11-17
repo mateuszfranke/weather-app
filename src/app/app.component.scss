@@ -79,10 +79,118 @@
 }
 
 .loader{
+  margin: 0 !important;
   width: 100vw;
   height: 100vh;
-  background-color: #E7E7EB;
-  color: #1E213A;
+  background-color: #100E1D;
+  color: #E7E7EB;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+  padding: 5%;
 }
 
+.loader--text{
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 5rem;
+  justify-self: end;
+  top:-2%;
+  position: relative;
 
+  @media only screen and (max-width: 600px) {
+    font-size: 4rem;
+  }
+
+  }
+
+.loader--dots{
+  justify-self: start;
+  margin-left: 5%;
+  @media only screen and (max-width: 600px) {
+    margin-left: 30%;
+  }
+}
+
+/**
+ * ==============================================
+ * Dot Pulse
+ * ==============================================
+ */
+
+$dots-color: #E7E7EB;
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $dots-color;
+  color: $dots-color;
+  box-shadow: 9999px 0 0 -5px $dots-color;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: .25s;
+}
+
+.dot-pulse::before, .dot-pulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $dots-color;
+  color: $dots-color;
+}
+
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px $dots-color;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px $dots-color;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: .5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px $dots-color;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px $dots-color;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px $dots-color;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px $dots-color;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px $dots-color;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px $dots-color;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px $dots-color;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px $dots-color;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px $dots-color;
+  }
+}
