@@ -10,7 +10,7 @@ import {WeatherService} from '../../services/weather.service';
 export class WeatherForecastComponent implements OnInit {
 
   @Input() weather: ConsolidatedWeatherModel;
-  isCelsius: boolean;
+  isCelsius = true;
 
   constructor(private weatherService: WeatherService) { }
 

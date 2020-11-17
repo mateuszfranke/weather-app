@@ -1,10 +1,11 @@
 <div>
   <section class="temperature__switch">
-    <div class="temperature selected" [ngClass]="isCelsius === true?'seleted':'deselected'" (click)="onConvertToCelsius()" >&#x2103;</div>
-    <div class="temperature deselected" [ngClass]="isCelsius === false?'seleted':'deselected'"  (click)="onConvertToFahrenheit()">&#8457;</div>
+    <div class="temperature deselected"
+         (click)="onConvertToCelsius()" >&#x2103;</div>
+    <div class="temperature deselected"  (click)="onConvertToFahrenheit()">&#8457;</div>
 
   </section>
   <section class="forecasts__grid">
-    <app-weather-forecast class="weather-forecast" *ngFor="let forecast of arr" [weather]="forecast"></app-weather-forecast>
+    <app-weather-forecast class="weather-forecast" *ngFor="let forecast of forecasts" [weather]="forecast"></app-weather-forecast>
   </section>
 </div>

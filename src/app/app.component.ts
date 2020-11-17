@@ -43,7 +43,4 @@ export class AppComponent implements OnInit{
     });
   }
 
-  reCalculateFahrenheit(): void {
-    this.isCelsius = false;
-  }
 }

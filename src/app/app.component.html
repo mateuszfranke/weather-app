@@ -1,10 +1,7 @@
 <section class="forecasts__grid">
   <app-weather *ngIf="!searchActive" (search)="setSearch($event)" (searchWithGPS)="getCityFromGPS($event)" class="weather"></app-weather>
   <app-search  *ngIf="searchActive" (search)="setSearch($event)" (woeid)="getCity($event)" class="weather"></app-search>
-  <app-weather-forecasts
-    [arr]="weatherForecasts"
-    (convertToFahrenheit)="reCalculateFahrenheit()"
-    class="weather-forecast"></app-weather-forecasts>
+  <app-weather-forecasts class="weather-forecast"></app-weather-forecasts>
   <app-weather-highlights class="weather-highlights"></app-weather-highlights>
   <app-footer class="footer"></app-footer>
 </section>

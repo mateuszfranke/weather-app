@@ -10,7 +10,7 @@ import {WeatherService} from '../services/weather.service';
 
 export class WeatherForecastsComponent implements OnInit {
 
-  @Input() arr: ConsolidatedWeatherModel[];
+  forecasts: ConsolidatedWeatherModel[];
   @Output() convertToCelsius: EventEmitter<any> =  new EventEmitter<any>();
   @Output() convertToFahrenheit: EventEmitter<any> =  new EventEmitter<any>();
   isCelsius: boolean ;
@@ -18,6 +18,9 @@ export class WeatherForecastsComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
+    this.weatherService.weather.subscribe(x => {
+      this.forecasts = x.consolidated_weather;
+    });
     this.isCelsius = true;
   }
 
