@@ -1,8 +1,13 @@
 <div>
   <section class="temperature__switch">
-    <div class="temperature deselected"
+    <div class="temperature"
+         [class.selected]="isCelsius"
+         [class.deselected]="!isCelsius"
          (click)="onConvertToCelsius()" >&#x2103;</div>
-    <div class="temperature deselected"  (click)="onConvertToFahrenheit()">&#8457;</div>
+    <div class="temperature"
+         [class.deselected]="isCelsius"
+         [class.selected]="!isCelsius"
+         (click)="onConvertToFahrenheit()">&#8457;</div>
 
   </section>
   <section class="forecasts__grid">
