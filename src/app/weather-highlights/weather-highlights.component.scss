@@ -14,12 +14,10 @@ $large-size: 1265px;
   overflow: scroll;
 
   @media only screen and (min-width: $medium-size){
-    background-color: red;
-    grid-template-rows: repeat(auto-fit, 8rem);
+    grid-template-rows: repeat(auto-fit, 10rem);
 
   }
   @media only screen and (min-width: $large-size){
-    background-color: blue;
   }
 }
 .highlight__outer-grid{
