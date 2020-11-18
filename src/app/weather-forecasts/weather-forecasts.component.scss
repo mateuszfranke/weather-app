@@ -1,11 +1,13 @@
+$medium-size: 900px;
+$large-size: 1265px;
+
 .forecasts__grid{
   display: grid;
   height: inherit;
-  width: 100% !important;
+  width: 100%;
   background: #100E1D;
   grid-template-columns: repeat(auto-fit, minmax(9rem ,1fr));
   grid-template-rows: repeat(auto-fit, 12rem);
-
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
   justify-content: center;
@@ -13,22 +15,31 @@
   position: relative;
   overflow: scroll;
   padding: 2%;
+
+  @media only screen and (min-width: $medium-size){
+    background-color: red;
+    grid-template-rows: repeat(auto-fit, 8rem);
+
+  }
+  @media only screen and (min-width: $large-size){
+    background-color: blue;
+  }
 }
 
 .weather-forecast{
   height: auto;
   justify-self: center;
 }
-@media only screen and (max-width: 600px) {
-  .temperature__switch {
-    visibility: hidden !important;
-  }
+
+.temperature__switch {
+    @media only screen and (min-width: 900px) {
+      visibility: visible;
+    }
+    @media only screen and (max-width: 600px) {
+      visibility: hidden !important;
+    }
 }
-@media only screen and (min-width: 900px) {
-  .temperature__switch {
-    visibility: visible;
-  }
-}
+
 .temperature__switch{
   visibility: visible;
   display: flex;

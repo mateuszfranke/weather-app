@@ -1,76 +1,100 @@
+$small-size: 600px;
+$medium-size: 900px;
+$large-size: 1465px;
 
-@media only screen and (min-width: 900px){
-  .forecasts__grid{
+
+
+.forecasts__grid{
     display: grid;
-    grid-template-areas:
-    "weather forecast forecast"
-    "weather highlights highlights"
-    "weather footer footer";
-    overflow: hidden;
-  }
-  .weather{
-    height: 100vh;
-    width: 30vw;
-  }
-  .weather-forecast{
-    height: 30vh;
-    width: 70vw;
-  }
 
-  .weather-highlights{
-    height: 60vh;
-    width: 70vw;
-  }
+    @media only screen and (min-width: $small-size) {
+      grid-template-areas:
+      "weather"
+      "forecast"
+      "highlights"
+      "footer";
+    }
 
-  .footer{
-    height: 10vh;
-    width: 70vw;
-  }
+    @media only screen and (min-width: $medium-size){
+      grid-template-areas:
+      "weather forecast forecast"
+      "weather highlights highlights"
+      "weather footer footer";
 
-}
+    }
+    @media only screen and (min-width: $large-size){
+      grid-template-areas:
+      "weather forecast forecast"
+      "weather highlights highlights"
+      "weather footer footer";
 
-@media only screen and (max-width: 600px) {
-
-  .forecasts__grid{
-    display: grid;
-    grid-template-areas:
-    "weather"
-    "forecast"
-    "highlights"
-    "footer";
+    }
   }
 
   .weather{
-    height: 100vh;
-    width: 100%;
+    @media only screen and (max-width: $small-size) {
+      height: 100vh;
+      width: 100vw;
+    }
+    @media only screen and (min-width: $medium-size) {
+      height: 100vh;
+      width: 30vw;
+    }
+    @media only screen and (min-width: $large-size) {
+      height: 100vh;
+      width: 30vw;
+
+    }
   }
 
   .weather-forecast{
-    height: 100vh;
-    width: 100%;
+    @media only screen and (max-width: $small-size) {
+      height: 100vh;
+    }
+    @media only screen and (min-width: $medium-size) {
+      height: 45vh;
+      overflow: hidden;
+    }
+    @media only screen and (min-width: $large-size) {
+      height: 30vh;
+    }
+    width: 70vw;
+
   }
 
   .weather-highlights{
-    height: 100vh;
-    width: 100%;
-    overflow: scroll;
-  }
-  .footer{
-    height: 15vh;
-    width: 100%;
+    @media only screen and (max-width: $small-size) {
+      height: 100vh;
+    }
+    @media only screen and (min-width: $medium-size) {
+      height: 45vh;
+    }
+    @media only screen and (min-width: $large-size) {
+      height: 50vh;
+    }
+    width: 70vw;
     overflow: hidden;
   }
-
-}
+  .footer{
+    @media only screen and (max-width: $small-size) {
+      height: 30vh;
+    }
+    @media only screen and (min-width: $medium-size) {
+      height: 10vh;
+    }
+    @media only screen and (min-width: $large-size) {
+      height: 20vh;
+    }
+    width: 70vw;
+    overflow: hidden;
+  }
 
 .weather{
   grid-area: weather;
 }
-
 .weather-forecast{
   grid-area: forecast;
 }
-
 .weather-highlights{
   grid-area: highlights;
 }
@@ -89,7 +113,6 @@
   align-items: center;
   padding: 5%;
 }
-
 .loader--text{
   margin: 0;
   font-family: "Raleway", sans-serif;
@@ -103,8 +126,7 @@
   }
 
   }
-
-.loader--dots{
+.loader--dots {
   justify-self: start;
   margin-left: 5%;
   @media only screen and (max-width: 600px) {

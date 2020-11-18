@@ -1,3 +1,6 @@
+$medium-size: 900px;
+$large-size: 1265px;
+
 .highlight__grid{
   display: grid;
   height: 100%;
@@ -9,6 +12,15 @@
   grid-row-gap: 4%;
   font-family: "Raleway", sans-serif;
   overflow: scroll;
+
+  @media only screen and (min-width: $medium-size){
+    background-color: red;
+    grid-template-rows: repeat(auto-fit, 8rem);
+
+  }
+  @media only screen and (min-width: $large-size){
+    background-color: blue;
+  }
 }
 .highlight__outer-grid{
   padding: 5%;
