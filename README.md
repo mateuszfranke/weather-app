@@ -3,9 +3,9 @@
 - Hosted solution available at [click](https://mateuszfranke.github.io/weather-app)
 - [figma](https://www.figma.com/file/5X3Ao3gEqZPqqKctP7riDF/weather-app?node-id=0%3A1)
 
-## tips
-- First loading can take a while due to proxy server ,additional information in network tab.
-
+## Important notes
+- First loading can take a while due to proxy server ,additional information available in network tab.
+- Not all cities are included in [meta-weather.com](https://www.metaweather.com/api/) gps will show nearest available city.
 ## Stack
 - Angular 10
 - scss

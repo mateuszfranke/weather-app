@@ -14,10 +14,6 @@ $large-size: 1271px;
       "footer";
     }
     @media only screen and (min-width: $small-size +1){
-      //grid-template-areas:
-      //"weather forecast forecast"
-      //"weather highlights highlights"
-      //"weather footer footer";
       grid-template-areas:
       "weather"
       "forecast"
@@ -62,6 +58,8 @@ $large-size: 1271px;
     @media only screen and (min-width: $medium-size) {
       height: 45vh;
       width: 70vw;
+      overflow: scroll;
+
     }
     @media only screen and (min-width: $large-size) {
       height: 35vh;
@@ -81,6 +79,8 @@ $large-size: 1271px;
     @media only screen and (min-width: $medium-size) {
       height: 50vh;
       width: 70vw;
+      overflow: scroll;
+
     }
     @media only screen and (min-width: $large-size) {
       height: 55vh;
