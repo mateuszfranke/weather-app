@@ -1,5 +1,18 @@
 <section class="humidity">
   <p>Humidity</p>
   <p class="humidity__number">{{humidity}}</p><span class="humidity__percentage">%</span>
-  <progress class="humidity__progress-bar" [value]="humidity" max="100"></progress>
+  <div class="progress">
+    <div class="meter--scale">
+      <p class="meter--number">0</p>
+      <p class="meter--number">50</p>
+      <p class="meter--number">100</p>
+    </div>
+    <div class="meter">
+      <span [style.width.%]="humidity"></span>
+    </div>
+    <div class="meter--percent">
+      %
+    </div>
+  </div>
+
 </section>
