@@ -1,12 +1,23 @@
 $small-size: 600px;
-$medium-size: 900px;
+$medium-size: 925px;
 $large-size: 1271px;
 
 
 
 .forecasts__grid{
     display: grid;
-    @media only screen and (min-width: $small-size) {
+    @media only screen and (max-width: $small-size) {
+      grid-template-areas:
+      "weather"
+      "forecast"
+      "highlights"
+      "footer";
+    }
+    @media only screen and (min-width: $small-size +1){
+      //grid-template-areas:
+      //"weather forecast forecast"
+      //"weather highlights highlights"
+      //"weather footer footer";
       grid-template-areas:
       "weather"
       "forecast"
@@ -17,18 +28,16 @@ $large-size: 1271px;
       grid-template-areas:
       "weather forecast forecast"
       "weather highlights highlights"
-      "weather footer footer";
-    }
-    @media only screen and (min-width: $large-size){
-      grid-template-areas:
-      "weather forecast forecast"
-      "weather highlights highlights"
       "weather highlights highlights"
       "weather footer footer";
     }
   }
   .weather{
     @media only screen and (max-width: $small-size) {
+      height: 100vh;
+      width: 100vw;
+    }
+    @media only screen and (min-width: $small-size +1){
       height: 100vh;
       width: 100vw;
     }
@@ -44,41 +53,58 @@ $large-size: 1271px;
   .weather-forecast{
     @media only screen and (max-width: $small-size) {
       height: 100vh;
+      width: 100vw;
+    }
+    @media only screen and (min-width: $small-size +1){
+      height: 50vh;
+      width: 100vw;
     }
     @media only screen and (min-width: $medium-size) {
       height: 45vh;
-      overflow: hidden;
+      width: 70vw;
     }
     @media only screen and (min-width: $large-size) {
-      height: 30vh;
+      height: 35vh;
+      width: 70vw;
     }
-    width: 70vw;
 
   }
   .weather-highlights{
     @media only screen and (max-width: $small-size) {
       height: 100vh;
+      width: 100vw;
+    }
+    @media only screen and (min-width: $small-size +1){
+      height: 60vh;
+      width: 100vw;
     }
     @media only screen and (min-width: $medium-size) {
-      height: 45vh;
+      height: 50vh;
+      width: 70vw;
     }
     @media only screen and (min-width: $large-size) {
-      height: 50vh;
+      height: 55vh;
+      width: 70vw;
     }
-    width: 70vw;
     overflow: hidden;
   }
   .footer{
     @media only screen and (max-width: $small-size) {
       height: 30vh;
+      width: 100vw;
+    }
+    @media only screen and (max-width: $small-size+1) {
+      height: 10vh;
+      width: 100vw;
     }
     @media only screen and (min-width: $medium-size) {
-      height: 10vh;
+      height: 5vh;
+      width: 70vw;
     }
     @media only screen and (min-width: $large-size) {
-      height: 20vh;
+      height: 10vh;
+      width: 70vw;
     }
-    width: 70vw;
     overflow: hidden;
   }
 
