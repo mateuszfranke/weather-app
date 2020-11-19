@@ -37,11 +37,13 @@ p{
   background-color: #A09FB1;
   height: 1.5rem;
   width: 1.5rem;
-  display: inline-block;
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .navigation{
-   font-size: 1.2rem;
+   font-size: 1rem;
 }
 .wind-status__main{
   display: block;
