@@ -24,8 +24,9 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.weatherService.loader.next(true);
-    this.loader = true;
     this.getCity(615702);
+
+    this.weatherService.loader.subscribe(x =>  this.loader = x);
   }
 
   setSearch($event): void {
@@ -49,13 +50,15 @@ export class AppComponent implements OnInit{
       );
   }
   getCityFromGPS(position: Position): void{
-    this.loader = true;
+    console.log('getting gps city');
     this.mWeatherService.lookForCityByCoordinates(position).subscribe(observer => {
       this.getCity(observer[0].woeid);
+
     },(error) => {
       console.log(error);
-      this.loader = false;
-    }, () => this.loader = false);
+    }, () => {
+      console.log('GPS location showed');
+    } );
   }
 
 }

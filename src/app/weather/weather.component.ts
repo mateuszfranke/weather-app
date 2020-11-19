@@ -43,11 +43,12 @@ export class WeatherComponent implements OnInit {
   }
 
   getCurrentLocation(): void {
+    // this.weatherService.loader.next(true);
+
     if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
         position => {
           this.geolocationPosition = position;
-          console.log(position);
           this.searchWithGPS.emit(position);
         },
         error => {

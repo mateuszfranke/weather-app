@@ -2,8 +2,6 @@ $small-size: 600px;
 $medium-size: 925px;
 $large-size: 1271px;
 
-
-
 .forecasts__grid{
     display: grid;
     @media only screen and (max-width: $small-size) {
@@ -58,7 +56,7 @@ $large-size: 1271px;
     @media only screen and (min-width: $medium-size) {
       height: 45vh;
       width: 70vw;
-      overflow: scroll;
+      overflow: auto;
 
     }
     @media only screen and (min-width: $large-size) {
@@ -79,14 +77,13 @@ $large-size: 1271px;
     @media only screen and (min-width: $medium-size) {
       height: 50vh;
       width: 70vw;
-      overflow: scroll;
+      overflow: auto;
 
     }
     @media only screen and (min-width: $large-size) {
       height: 55vh;
       width: 70vw;
     }
-    overflow: hidden;
   }
   .footer{
     @media only screen and (max-width: $small-size) {

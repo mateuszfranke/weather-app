@@ -6,7 +6,7 @@ $large-size: 1265px;
   height: inherit;
   width: 100%;
   background: #100E1D;
-  grid-template-columns: repeat(auto-fit, minmax(9rem ,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem ,1fr));
   grid-template-rows: repeat(auto-fit, 12rem);
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
@@ -16,17 +16,13 @@ $large-size: 1265px;
   overflow: scroll;
   padding: 2%;
 
-  @media only screen and (min-width: $medium-size){
-    grid-template-rows: repeat(auto-fit, 9rem);
 
-  }
-  @media only screen and (min-width: $large-size){
-  }
 }
 
 .weather-forecast{
   height: auto;
   justify-self: center;
+  width: -webkit-fill-available ;
 }
 
 .temperature__switch {
