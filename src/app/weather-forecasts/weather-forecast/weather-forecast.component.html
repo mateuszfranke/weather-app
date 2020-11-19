@@ -1,6 +1,6 @@
 <section class="weather">
 <p class="weather__date">{{weather.applicable_date}}</p>
-  <img src="assets/sun-cloud.png" alt="sun" class="weather--image">
+  <img src="assets/{{weather.weather_state_abbr}}.svg"[alt]="weather.weather_state_name" class="weather--image">
   <div class="weather__temperature">
     <div class="maximal__temperature">
       <p class="max-temp inline-block">{{weather?.max_temp?.toFixed(0)}}</p>

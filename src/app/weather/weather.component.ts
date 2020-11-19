@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {WeatherService} from '../services/weather.service';
 import {MetaWeatherModel} from '../models/meta-weather.model';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-weather',
@@ -9,11 +10,12 @@ import {MetaWeatherModel} from '../models/meta-weather.model';
 })
 export class WeatherComponent implements OnInit {
 
-  weather: MetaWeatherModel;
+  public weather: MetaWeatherModel;
   @Output() search: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() searchWithGPS: EventEmitter<Position> = new EventEmitter<Position>();
   private geolocationPosition: Position;
   isCelsius = true;
+  imgUrl = `${environment.herokuUrl}${environment.metaWeatherUrl}`+'/static/img/weather/png/c.png';
 
   constructor(public weatherService: WeatherService) {
   }
@@ -22,7 +24,6 @@ export class WeatherComponent implements OnInit {
     this.weatherService.weather.subscribe((observer: MetaWeatherModel) => {
       this.weather = observer;
       this.weatherService.loader.next(false);
-      console.log('loader emitted to FALSE');
     });
 
     this.weatherService.isCelsius.subscribe((observer: boolean) => {

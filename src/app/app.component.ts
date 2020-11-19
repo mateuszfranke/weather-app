@@ -39,6 +39,7 @@ export class AppComponent implements OnInit{
           observer.consolidated_weather[0].applicable_date = 'Tomorrow';
           this.weatherService.weather.next(observer);
           this.weatherService.isCelsius.next(true);
+          console.log( observer.consolidated_weather);
       }, (error) => {
         console.log(error);
         }, () => {
@@ -50,7 +51,6 @@ export class AppComponent implements OnInit{
   getCityFromGPS(position: Position): void{
     this.loader = true;
     this.mWeatherService.lookForCityByCoordinates(position).subscribe(observer => {
-      alert('Nearest available city in www.metaweather.com is ' + observer[0].title);
       this.getCity(observer[0].woeid);
     },(error) => {
       console.log(error);
