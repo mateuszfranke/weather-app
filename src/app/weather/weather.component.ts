@@ -43,9 +43,8 @@ export class WeatherComponent implements OnInit {
   }
 
   getCurrentLocation(): void {
-    // this.weatherService.loader.next(true);
-
     if (window.navigator && window.navigator.geolocation) {
+      this.weatherService.loader.next(true);
       window.navigator.geolocation.getCurrentPosition(
         position => {
           this.geolocationPosition = position;

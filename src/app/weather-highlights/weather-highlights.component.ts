@@ -16,7 +16,7 @@ export class WeatherHighlightsComponent implements OnInit {
 
   ngOnInit(): void {
     this.weatherService.weather.subscribe(observer => {
-      this.weather = observer.consolidated_weather[0];
+      this.weather = observer?.consolidated_weather[0];
     });
   }
 

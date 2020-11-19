@@ -1,11 +1,15 @@
-<section class="forecasts__grid" *ngIf="loader === false">
-  <app-weather *ngIf="!searchActive" (search)="setSearch($event)" (searchWithGPS)="getCityFromGPS($event)" class="weather"></app-weather>
-  <app-search  *ngIf="searchActive" (search)="setSearch($event)" (woeid)="getCity($event)" class="weather"></app-search>
-  <app-weather-forecasts class="weather-forecast"></app-weather-forecasts>
-  <app-weather-highlights class="weather-highlights"></app-weather-highlights>
-  <app-footer class="footer"></app-footer>
-</section>
-<section class="loader" *ngIf="loader === true">
-  <div class="loader--text">Loading </div><div class="dot-pulse loader--dots"></div>
+<section class="main" >
+  <section class="loader" [style.z-index]="loader?4:2">
+    <div class="loader--text">Loading </div>
+    <div class="dot-pulse loader--dots"></div>
+  </section>
+  <section class="forecasts__grid">
+    <app-weather *ngIf="!searchActive" (search)="setSearch($event)" (searchWithGPS)="getCityFromGPS($event)" class="weather"></app-weather>
+    <app-search *ngIf="searchActive" (search)="setSearch($event)" (woeid)="getCity($event)" class="weather"></app-search>
+    <app-weather-forecasts class="weather-forecast"></app-weather-forecasts>
+    <app-weather-highlights class="weather-highlights"></app-weather-highlights>
+    <app-footer class="footer"></app-footer>
+  </section>
+
 </section>
 

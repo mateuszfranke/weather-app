@@ -3,6 +3,8 @@ $medium-size: 925px;
 $large-size: 1271px;
 
 .forecasts__grid{
+  z-index: 2;
+  position: absolute;
     display: grid;
     @media only screen and (max-width: $small-size) {
       grid-template-areas:
@@ -117,8 +119,11 @@ $large-size: 1271px;
 .footer{
   grid-area: footer;
 }
-
+.main{
+  position: relative;
+}
 .loader{
+  position: absolute;
   margin: 0 !important;
   width: 100vw;
   height: 100vh;
@@ -128,6 +133,9 @@ $large-size: 1271px;
   grid-template-columns: repeat(2,1fr);
   align-items: center;
   padding: 5%;
+}
+.none{
+
 }
 .loader--text{
   margin: 0;
@@ -231,4 +239,9 @@ $dots-color: #E7E7EB;
   100% {
     box-shadow: 10014px 0 0 -5px $dots-color;
   }
+}
+
+.loading--overlay{
+  width: 100vw;
+  height: 100vh;
 }

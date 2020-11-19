@@ -1,4 +1,4 @@
-import {Component, Injectable, Input, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnDestroy, OnInit} from '@angular/core';
 import {MetaWeatherService} from './services/meta-weather.service';
 import {ConsolidatedWeatherModel} from './models/consolidated_weather.model';
 import {WeatherService} from './services/weather.service';
@@ -10,7 +10,7 @@ import {MetaWeatherModel} from './models/meta-weather.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
 
   title = 'weather-app';
   weather: ConsolidatedWeatherModel;
@@ -25,7 +25,6 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.weatherService.loader.next(true);
     this.getCity(615702);
-
     this.weatherService.loader.subscribe(x =>  this.loader = x);
   }
 
@@ -40,9 +39,11 @@ export class AppComponent implements OnInit{
           observer.consolidated_weather[0].applicable_date = 'Tomorrow';
           this.weatherService.weather.next(observer);
           this.weatherService.isCelsius.next(true);
-          console.log( observer.consolidated_weather);
+          console.log(observer);
       }, (error) => {
         console.log(error);
+        this.loader = false;
+        alert('Http request failed, reload page.');
         }, () => {
           console.log('HTTP Observable completed...');
           this.loader = false;
@@ -50,15 +51,14 @@ export class AppComponent implements OnInit{
       );
   }
   getCityFromGPS(position: Position): void{
-    console.log('getting gps city');
     this.mWeatherService.lookForCityByCoordinates(position).subscribe(observer => {
       this.getCity(observer[0].woeid);
-
-    },(error) => {
+    }, (error) => {
       console.log(error);
-    }, () => {
-      console.log('GPS location showed');
-    } );
+    }, () => console.log('getCityId completed'));
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

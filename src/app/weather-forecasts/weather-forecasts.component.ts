@@ -19,7 +19,7 @@ export class WeatherForecastsComponent implements OnInit {
 
   ngOnInit(): void {
     this.weatherService.weather.subscribe(x => {
-      this.forecasts = x.consolidated_weather;
+      this.forecasts = x?.consolidated_weather;
     });
     this.isCelsius = true;
   }
