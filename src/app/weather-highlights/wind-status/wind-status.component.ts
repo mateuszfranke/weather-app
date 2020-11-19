@@ -8,11 +8,16 @@ import {Component, Input, OnInit} from '@angular/core';
 export class WindStatusComponent implements OnInit {
 
   @Input() windSpeed: number;
-  @Input() windDirection: string;
+  @Input() windDirectionName: string;
+  @Input() windDirection: number;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setWindDirection(): string {
+    return `rotate(${this.windDirection}deg)`;
   }
 
 }

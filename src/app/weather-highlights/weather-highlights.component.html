@@ -2,7 +2,7 @@
   <h2 class="todays-highlights">Today’s Hightlights</h2>
   <section class="highlight__grid">
     <app-wind-status [windSpeed]="weather?.wind_speed"
-                     [windDirection]="weather?.wind_direction_compass">
+                     [windDirectionName]="weather?.wind_direction_compass" [windDirection]="weather.wind_direction">
 
     </app-wind-status>
     <app-humidity [humidity]="weather?.humidity" ></app-humidity>
