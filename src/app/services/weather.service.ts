@@ -7,7 +7,7 @@ export class WeatherService{
   weather: BehaviorSubject<MetaWeatherModel> = new BehaviorSubject<MetaWeatherModel>(null);
   searchActive: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
   isCelsius: BehaviorSubject<boolean>;
-  loader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  loader: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   constructor() {
     this.isCelsius = new BehaviorSubject<boolean>(true);

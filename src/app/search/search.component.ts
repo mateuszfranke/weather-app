@@ -36,12 +36,11 @@ export class SearchComponent implements OnInit, OnDestroy {
     (error) => console.log(error),
       () => {
         this.weatherService.loader.next(false);
-
       }
     );
   }
-
   selectedCity($event: SearchModel): void {
+    this.weatherService.loader.next(true);
     this.woeid.emit($event.woeid);
     this.search.emit(false);
   }

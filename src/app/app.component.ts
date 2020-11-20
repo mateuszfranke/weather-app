@@ -20,12 +20,12 @@ export class AppComponent implements OnInit, OnDestroy{
   isCelsius = true;
   loader: boolean;
 
-  constructor(private mWeatherService: MetaWeatherService, private weatherService: WeatherService) { }
+  constructor(private mWeatherService: MetaWeatherService, private weatherService: WeatherService) {
+  }
 
   ngOnInit(): void {
-    this.weatherService.loader.next(true);
     this.getCity(615702);
-    this.weatherService.loader.subscribe(x =>  this.loader = x);
+    this.weatherService.loader.subscribe(isLoading =>  this.loader = isLoading);
   }
 
   setSearch($event): void {
@@ -61,4 +61,10 @@ export class AppComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
   }
 
+  onLoad(): number {
+    if (this.loader === false){
+      return 2;
+    }
+    return 4;
+  }
 }

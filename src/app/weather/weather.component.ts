@@ -23,7 +23,6 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.weatherService.weather.subscribe((observer: MetaWeatherModel) => {
       this.weather = observer;
-      this.weatherService.loader.next(false);
     });
 
     this.weatherService.isCelsius.subscribe((observer: boolean) => {
